@@ -1,0 +1,30 @@
+{
+  "name": "grid-cells",
+  "version": "1.0.0",
+  "description": "grod cells",
+  "keywords": [
+    "grid",
+    "cells"
+  ],
+  "scripts": {
+    "test": "gulp lint && mocha-phantomjs test/index.html"
+  },
+  "author": {
+    "name": "Daniel Husár",
+    "email": "dano.husar@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danielhusar/grid-cells"
+  },
+  "devDependencies": {
+    "express": "^4.2.0",
+    "gulp": "^3.8.6",
+    "gulp-jshint": "^1.6.0",
+    "jshint-stylish": "^0.2.0",
+    "mocha": "^1.18.2",
+    "open": "^0.0.5",
+    "serve-index": "^1.0.2"
+  },
+  "readmeFilename": "Readme.md"
+}
