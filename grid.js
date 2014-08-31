@@ -7,7 +7,7 @@
     this.context = this.canvas.getContext('2d');
     this.config = config;
     this.size = 30;
-    
+
     this.draw();
 
     //next step click
@@ -29,7 +29,6 @@
     var i, j;
 
     this.context.clearRect(0, 0, 450, 450);
-    this.context.fillStyle = '#00B2B3';
 
     for (i = 0; i < 15; i++) {
       for (j = 0; j < 15; j++) {
@@ -37,9 +36,6 @@
         this[method](i * this.size, j * this.size);
       }
     }
-
-    this.context.lineWidth = 1;
-    this.context.stroke();
 
     return this;
   };
@@ -82,10 +78,9 @@
     var iTop = iMin + 3;
     var jTop = jMin + 3;
     var aliveCount = 0;
-    var config = {};
     var i, j;
 
-    for (var i = iMin; i < iTop; i++) {
+    for (i = iMin; i < iTop; i++) {
       for (j = jMin; j < jTop; j++) {
         if (this.isAlive(i, j)) {
           aliveCount = aliveCount + 1;
@@ -103,7 +98,12 @@
    * @return {this}
    */
   FN.drawEmpty = function(x, y) {
+    this.context.beginPath();
+    this.context.lineWidth = 1;
+    this.context.strokeStyle = 'black';
     this.context.rect(x, y, this.size, this.size);
+    this.context.stroke();
+    this.context.closePath();
     return this;
   };
 
@@ -114,10 +114,17 @@
    * @return {this}
    */
   FN.drawFull = function(x, y) {
-    this.context.fillRect(x, y, this.size, this.size);
+    this.context.beginPath();
+    this.context.lineWidth = 1;
+    this.context.fillStyle = '#00B2B3';
+    this.context.strokeStyle = 'black';
+    this.context.rect(x, y, this.size, this.size);
+    this.context.fill();
+    this.context.stroke();
+    this.context.closePath();
     return this;
   };
-  
+
   /**
    * Check if the cell is alive or dead
    * @param {int} x coord
@@ -127,7 +134,6 @@
   FN.isAlive = function(x, y) {
     return !! (this.config[x] && this.config[x].indexOf(y) !== -1);
   };
-
 
   var config = {
     1 : [],
