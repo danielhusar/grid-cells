@@ -52,8 +52,8 @@
     var config = {};
     var i, j;
 
-    for (i = 0; i < 15; i++;) {
-      for (j = 0; j < 15; j++;) {
+    for (i = 0; i < 15; i++) {
+      for (j = 0; j < 15; j++) {
         var x = i + 1;
         var y = j + 1;
         var current = this.isAlive(x, y);
@@ -85,8 +85,8 @@
     var config = {};
     var i, j;
 
-    for (var i = iMin; i < iTop; i++;) {
-      for (j = jMin; j < jTop; j++;) {
+    for (var i = iMin; i < iTop; i++) {
+      for (j = jMin; j < jTop; j++) {
         if (this.isAlive(i, j)) {
           aliveCount = aliveCount + 1;
         }
