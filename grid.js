@@ -8,7 +8,7 @@
     this.config = config;
     this.size = 30;
     this.width = 450;
-    this.count = this.size / this.width;
+    this.count = this.width / this.size;
 
     this.draw();
 
