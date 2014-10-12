@@ -99,7 +99,7 @@
    * @param  {int} y coord
    * @return {this}
    */
-  FN.drawEmpty = function(x, y) {
+  FN.drawEmpty = function (x, y) {
     this.context.beginPath();
     this.context.lineWidth = 1;
     this.context.strokeStyle = 'black';
@@ -115,7 +115,7 @@
    * @param  {int} y coord
    * @return {this}
    */
-  FN.drawFull = function(x, y) {
+  FN.drawFull = function (x, y) {
     this.context.beginPath();
     this.context.lineWidth = 1;
     this.context.fillStyle = '#00B2B3';
@@ -133,7 +133,7 @@
    * @param {int} y coord
    * @return boolean
    */
-  FN.isAlive = function(x, y) {
+  FN.isAlive = function (x, y) {
     return !! (this.config[x] && this.config[x].indexOf(y) !== -1);
   };
 
