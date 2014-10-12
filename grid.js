@@ -7,6 +7,8 @@
     this.context = this.canvas.getContext('2d');
     this.config = config;
     this.size = 30;
+    this.width = 450;
+    this.count = this.size / this.width;
 
     this.draw();
 
@@ -28,10 +30,10 @@
   FN.draw = function () {
     var i, j;
 
-    this.context.clearRect(0, 0, 450, 450);
+    this.context.clearRect(0, 0, this.width, this.width);
 
-    for (i = 0; i < 15; i++) {
-      for (j = 0; j < 15; j++) {
+    for (i = 0; i < this.count; i++) {
+      for (j = 0; j < this.count; j++) {
         var method = this.isAlive(j + 1, i + 1) ? 'drawFull' : 'drawEmpty';
         this[method](i * this.size, j * this.size);
       }
@@ -48,8 +50,8 @@
     var config = {};
     var i, j;
 
-    for (i = 0; i < 15; i++) {
-      for (j = 0; j < 15; j++) {
+    for (i = 0; i < this.count; i++) {
+      for (j = 0; j < this.count; j++) {
         var x = i + 1;
         var y = j + 1;
         var current = this.isAlive(x, y);
